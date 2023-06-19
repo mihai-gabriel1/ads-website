@@ -17,12 +17,12 @@ const ListedAds = () => {
 
     return (
         <div className="w-[600px]">
-            <h2>Currently Listed Ads</h2>
+            <p className="text-2xl mb-2">Currently Listed Ads</p>
             <ul>
                 {ads.map((ad) => (
                     <li key={ad.id}>
-                        <h3>{ad.title}</h3>
-                        <p>{ad.body}</p>
+                        <p className="text-xl bold-50">{ad.title}</p>
+                        <p className="body-p">{ad.body}</p>
                     </li>
                 ))}
             </ul>

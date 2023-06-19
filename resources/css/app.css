@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background: linear-gradient(to bottom, #030242, #7b16ff);
+    background: linear-gradient(to bottom, #000000, #25074e);
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: #fff !important;
@@ -44,4 +44,8 @@ textarea {
     display: flex;
     flex-direction: column !important;
     color: #030242;
+}
+
+.body-p {
+    color: rgb(121, 121, 255);
 }

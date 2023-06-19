@@ -39,7 +39,7 @@ const CreateAd = () => {
     return (
         <div>
             <div className="create-ad-wrapper flex-column ml-12">
-                <p className="text-white">Create a post!</p>
+                <p className="text-white text-2xl">Create a post!</p>
                 <form onSubmit={handleSubmit}>
                     <div className="mt-2">
                         <label htmlFor="title">Title:</label>
