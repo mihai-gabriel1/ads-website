@@ -13,9 +13,10 @@ class ExampleController extends Controller
         $ad->title = $request->input('title');
         $ad->body = $request->input('body');
         $ad->save();
-
-        return response()->json(['message' => 'Ad created successfully']);
+    
+        return response()->json(['message' => 'Ad created successfully', 'ad' => $ad]);
     }
+    
 
     public function getAds()
     {

@@ -16,7 +16,7 @@ const ListedAds = () => {
     }, []);
 
     return (
-        <div>
+        <div className="w-[600px]">
             <h2>Currently Listed Ads</h2>
             <ul>
                 {ads.map((ad) => (

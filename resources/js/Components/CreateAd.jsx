@@ -39,9 +39,9 @@ const CreateAd = () => {
     return (
         <div>
             <div className="create-ad-wrapper flex-column ml-12">
-                <p>Create a post!</p>
+                <p className="text-white">Create a post!</p>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="mt-2">
                         <label htmlFor="title">Title:</label>
                         <input
                             type="text"
@@ -50,7 +50,7 @@ const CreateAd = () => {
                             onChange={handleTitleChange}
                         />
                     </div>
-                    <div>
+                    <div className="mt-2">
                         <label htmlFor="body">Body:</label>
                         <textarea
                             id="body"
@@ -58,7 +58,10 @@ const CreateAd = () => {
                             onChange={handleBodyChange}
                         ></textarea>
                     </div>
-                    <button className="bg-blue-500 p-1 rounded" type="submit">
+                    <button
+                        className="bg-blue-500 p-1 rounded mt-2"
+                        type="submit"
+                    >
                         Submit
                     </button>
                 </form>
