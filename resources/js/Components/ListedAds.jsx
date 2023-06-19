@@ -3,16 +3,22 @@ import React, { useEffect, useState } from "react";
 const ListedAds = () => {
     const [ads, setAds] = useState([]);
 
-    useEffect(() => {
-        // Fetch the currently listed ads from the backend API endpoint
-        fetch("/api/get-ads")
-            .then((response) => response.json())
-            .then((data) => {
+    const fetchAds = async () => {
+        try {
+            const response = await fetch("/api/get-ads");
+            if (response.ok) {
+                const data = await response.json();
                 setAds(data);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+            } else {
+                console.error("Error:", response.status);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchAds();
     }, []);
 
     return (

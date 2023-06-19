@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CreateAd = () => {
+const CreateAd = ({ onAdCreated }) => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
@@ -25,15 +25,19 @@ const CreateAd = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data); // Optional: handle the response data, display success message, etc.
+                // Call the onAdCreated function passed from the parent component
+                onAdCreated(data);
+
+                // Reset the input fields after submitting
+                setTitle("");
+                setBody("");
+
+                // Redirect to a new page (e.g., homepage)
+                window.location.href = "/"; // Replace "/" with your desired destination
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
-
-        // Reset the input fields after submitting
-        setTitle("");
-        setBody("");
     };
 
     return (
