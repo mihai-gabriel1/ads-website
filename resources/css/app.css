@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: linear-gradient(to bottom, #030242, #7b16ff);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff !important;
+}
+
+* {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.placeholder-logo {
+    color: #fff;
+}
+
+.nav-wrapper {
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+}
+
+.header-p {
+    font-size: 30px;
+}
+
+.listed-ads {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.ads-header-p {
+    font-size: 20px;
+}
+
+input,
+textarea {
+    display: flex;
+    flex-direction: column !important;
+    color: #030242;
+}
