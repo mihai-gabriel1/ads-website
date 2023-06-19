@@ -42,7 +42,7 @@ body {
 input,
 textarea {
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     color: #030242;
     max-width: 220px;
     width: 100%;
