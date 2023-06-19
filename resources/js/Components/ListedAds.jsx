@@ -21,7 +21,7 @@ const ListedAds = () => {
             <ul>
                 {ads.map((ad) => (
                     <li key={ad.id}>
-                        <p className="text-xl bold-50">{ad.title}</p>
+                        <p className="text-xl bold-50 ad-title">{ad.title}</p>
                         <p className="body-p">{ad.body}</p>
                     </li>
                 ))}

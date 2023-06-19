@@ -44,8 +44,21 @@ textarea {
     display: flex;
     flex-direction: column !important;
     color: #030242;
+    max-width: 220px;
+    width: 100%;
 }
 
 .body-p {
     color: rgb(121, 121, 255);
+}
+
+.ad-title {
+    border-bottom: 2px solid yellow;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+li {
+    border: 1px solid rgb(119, 0, 255);
+    padding: 10px 20px;
 }
