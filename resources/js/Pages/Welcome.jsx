@@ -6,6 +6,8 @@ import { Link, Head } from "@inertiajs/react";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const [ads, setAds] = useState([]);
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
 
     const handleAdCreated = (ad) => {
         setAds((prevAds) => [...prevAds, ad]);
@@ -13,6 +15,32 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     const handleAdRemoved = (adId) => {
         setAds((prevAds) => prevAds.filter((ad) => ad.id !== adId));
+    };
+
+    const createPost = (event) => {
+        event.preventDefault();
+
+        // Send the form data to the backend API endpoint
+        fetch("/api/create-ad", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${auth.token}`,
+            },
+            body: JSON.stringify({ title, body }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Call the onAdCreated function passed from the parent component
+                handleAdCreated(data);
+
+                // Reset the input fields after submitting the post.
+                setTitle("");
+                setBody("");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
 
     return (
@@ -51,7 +79,37 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <Header />
             </div>
             <div className="listed-ads gap-12">
-                <CreateAd onAdCreated={handleAdCreated} />
+                {auth.user && (
+                    <form onSubmit={createPost}>
+                        <div>
+                            <label htmlFor="title">Title:</label>
+                            <input
+                                type="text"
+                                id="title"
+                                value={title}
+                                onChange={(event) =>
+                                    setTitle(event.target.value)
+                                }
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="body">Body:</label>
+                            <textarea
+                                id="body"
+                                value={body}
+                                onChange={(event) =>
+                                    setBody(event.target.value)
+                                }
+                            ></textarea>
+                        </div>
+                        <button
+                            className="create-post-btn rounded mt-2"
+                            type="submit"
+                        >
+                            Create a post
+                        </button>
+                    </form>
+                )}
                 <ListedAds ads={ads} onAdRemoved={handleAdRemoved} />
             </div>
         </>
