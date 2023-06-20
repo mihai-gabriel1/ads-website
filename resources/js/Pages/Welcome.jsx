@@ -47,7 +47,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         <>
             <Head title="Welcome" />
             <div className="nav-wrapper">
-                <p className="placeholder-logo">Logo</p>
+                <p className="placeholder-logo">
+                    <a href="/">Logo</a>
+                </p>
                 <div className="navbar">
                     {auth.user ? (
                         <Link
