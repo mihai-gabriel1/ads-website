@@ -110,7 +110,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </button>
                     </form>
                 )}
-                <ListedAds ads={ads} onAdRemoved={handleAdRemoved} />
+                <ListedAds
+                    ads={ads}
+                    onAdRemoved={handleAdRemoved}
+                    auth={auth}
+                />
             </div>
         </>
     );

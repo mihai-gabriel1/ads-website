@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ListedAds = ({ ads: initialAds, onAdRemoved }) => {
+const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     const [ads, setAds] = useState(initialAds);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -56,12 +56,14 @@ const ListedAds = ({ ads: initialAds, onAdRemoved }) => {
                                 {ad.title}
                             </p>
                             <p className="body-p">{ad.body}</p>
-                            <button
-                                className="bg-red-500 p-1 rounded mt-2"
-                                onClick={() => handleRemoveAd(ad.id)}
-                            >
-                                Remove
-                            </button>
+                            {auth.user && (
+                                <button
+                                    className="bg-red-500 p-1 rounded mt-2"
+                                    onClick={() => handleRemoveAd(ad.id)}
+                                >
+                                    Remove
+                                </button>
+                            )}
                         </li>
                     ))}
                 </ul>
