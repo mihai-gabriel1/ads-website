@@ -34,6 +34,9 @@ const ListedAds = ({ ads: initialAds, onAdRemoved }) => {
             .then((data) => {
                 // Call the onAdRemoved function passed from the parent component
                 onAdRemoved(adId);
+
+                // Update the ads state by filtering out the deleted ad
+                setAds((prevAds) => prevAds.filter((ad) => ad.id !== adId));
             })
             .catch((error) => {
                 console.error("Error:", error);

@@ -36,7 +36,14 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 90px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .ads-header-p {
