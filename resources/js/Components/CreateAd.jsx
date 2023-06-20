@@ -28,12 +28,12 @@ const CreateAd = ({ onAdCreated }) => {
                 // Call the onAdCreated function passed from the parent component
                 onAdCreated(data);
 
-                // Reset the input fields after submitting
+                // Reset the input fields after submitting the post.
                 setTitle("");
                 setBody("");
 
-                // Redirect to a new page (e.g., homepage)
-                window.location.href = "/"; // Replace "/" with your desired destination
+                // Redirect to homepage
+                window.location.href = "/";
             })
             .catch((error) => {
                 console.error("Error:", error);

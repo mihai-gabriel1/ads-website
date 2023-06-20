@@ -11,6 +11,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         setAds((prevAds) => [...prevAds, ad]);
     };
 
+    const handleAdRemoved = (adId) => {
+        setAds((prevAds) => prevAds.filter((ad) => ad.id !== adId));
+    };
+
     return (
         <>
             <Head title="Welcome" />
@@ -48,7 +52,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             </div>
             <div className="listed-ads gap-12">
                 <CreateAd onAdCreated={handleAdCreated} />
-                <ListedAds ads={ads} />
+                <ListedAds ads={ads} onAdRemoved={handleAdRemoved} />
             </div>
         </>
     );
