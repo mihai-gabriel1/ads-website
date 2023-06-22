@@ -42,7 +42,7 @@ const CreateAd = ({ onAdCreated }) => {
 
     return (
         <div>
-            <div className="create-ad-wrapper flex-column">
+            {/* <div className="create-ad-wrapper flex-column">
                 <p className="text-white text-2xl">Create a post!</p>
                 <form onSubmit={handleSubmit}>
                     <div className="mt-2">
@@ -69,7 +69,7 @@ const CreateAd = ({ onAdCreated }) => {
                         Submit
                     </button>
                 </form>
-            </div>
+            </div> */}
         </div>
     );
 };
