@@ -2,7 +2,7 @@
 
 Ads posting website, created using ReactJS for frontend, and PHP/Laravel for the backend part, along with Mysql for the DB.
 
-# How to instal and run
+# How to install and fire up the project
 
 -   Download the zip or clone the project - <code>
     git@github.com:mihai-gabriel1/ads-website.git
