@@ -7,6 +7,11 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: #fff;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important ;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 * {
@@ -38,12 +43,13 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 90px;
+    padding-bottom: 60px;
 }
 
 ul {
     display: flex;
-    flex-direction: column;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
 .ads-header-p {
@@ -79,4 +85,33 @@ li {
     padding: 5px 15px;
     font-weight: bold;
     font-size: 18px;
+}
+
+.footer {
+    display: flex;
+    background-color: #543185;
+    text-align: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 890px) {
+    .listed-ads {
+        padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .ads-container,
+    ul {
+        display: flex;
+        flex-wrap: wrap !important;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    li {
+        max-width: 160px;
+        width: 100%;
+    }
 }

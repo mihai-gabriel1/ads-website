@@ -3,6 +3,7 @@ import CreateAd from "@/Components/CreateAd";
 import Header from "@/Components/Header";
 import ListedAds from "@/Components/ListedAds";
 import { Link, Head } from "@inertiajs/react";
+import Footer from "@/Components/Footer";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const [ads, setAds] = useState([]);
@@ -118,6 +119,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     auth={auth}
                 />
             </div>
+            <Footer />
         </>
     );
 }

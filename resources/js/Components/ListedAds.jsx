@@ -52,7 +52,7 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     };
 
     return (
-        <div className="w-[600px]">
+        <div className="w-[600px] ads-container">
             <p className="text-2xl mb-2">Currently Listed Ads</p>
             {isLoading ? (
                 <p>Loading ads...</p>
