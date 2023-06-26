@@ -18,11 +18,10 @@ Ads posting website, created using ReactJS for frontend, and PHP/Laravel for the
 
 # Run the project
 
--   Open a terminal
-    Run the following:
--   <code>
+-   Open a terminal and run the following:
+    <code>
     npm run dev</code>
--   <code>
+    <code>
     php artisan serve</code>
 
 ### Technologies used
