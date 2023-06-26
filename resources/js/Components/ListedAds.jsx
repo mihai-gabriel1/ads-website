@@ -56,6 +56,10 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
                                 {ad.title}
                             </p>
                             <p className="body-p">{ad.body}</p>
+                            <p className="ad-created-at">
+                                Created at: {ad.created_at}
+                            </p>{" "}
+                            {/* Add this line */}
                             {auth.user && (
                                 <button
                                     className="bg-red-500 p-1 rounded mt-2"

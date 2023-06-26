@@ -12,6 +12,7 @@ class AdController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
+            'created_at',
         ]);
 
         $ad = Ad::create($validatedData);

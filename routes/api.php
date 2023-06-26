@@ -11,5 +11,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/create-ad', [ExampleController::class, 'storeAd']);
 Route::get('/get-ads', [ExampleController::class, 'getAds']);
 Route::delete('/remove-ad/{id}', [ExampleController::class, 'removeAd']);
-
-// ...
