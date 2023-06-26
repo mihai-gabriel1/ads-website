@@ -26,21 +26,29 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     }, []);
 
     const handleRemoveAd = (adId) => {
-        // Send the request to remove the ad
         fetch(`/api/remove-ad/${adId}`, {
             method: "DELETE",
         })
             .then((response) => response.json())
             .then((data) => {
-                // Call the onAdRemoved function passed from the parent component
                 onAdRemoved(adId);
-
-                // Update the ads state by filtering out the deleted ad
                 setAds((prevAds) => prevAds.filter((ad) => ad.id !== adId));
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
+    };
+
+    const formatDate = (dateString) => {
+        const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+        };
+        return new Date(dateString).toLocaleString(undefined, options);
     };
 
     return (
@@ -57,9 +65,8 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
                             </p>
                             <p className="body-p">{ad.body}</p>
                             <p className="ad-created-at">
-                                Created at: {ad.created_at}
-                            </p>{" "}
-                            {/* Add this line */}
+                                Created at: {formatDate(ad.created_at)}
+                            </p>
                             {auth.user && (
                                 <button
                                     className="bg-red-500 p-1 rounded mt-2"

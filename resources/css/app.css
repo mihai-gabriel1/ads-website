@@ -43,7 +43,7 @@ body {
 ul {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 
 .ads-header-p {
