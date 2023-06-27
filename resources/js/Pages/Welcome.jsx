@@ -5,7 +5,7 @@ import ListedAds from "@/Components/ListedAds";
 import { Link, Head } from "@inertiajs/react";
 import Footer from "@/Components/Footer";
 
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
+export default function Welcome({ auth }) {
     const [ads, setAds] = useState([]);
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
@@ -82,7 +82,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <Header />
             </div>
             <div className="listed-ads gap-12">
-                {auth.user && (
+                {auth.user && auth.user.usertype === "admin" && (
                     <form onSubmit={createPost}>
                         <div>
                             <label htmlFor="title">Title:</label>
@@ -114,9 +114,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </form>
                 )}
                 <ListedAds
+                    auth={auth}
                     ads={ads}
                     onAdRemoved={handleAdRemoved}
-                    auth={auth}
                 />
             </div>
             <Footer />
