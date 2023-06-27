@@ -15,6 +15,15 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+    
+        if(auth()->check()) {
+            return $next($request);
+        }
+
+        if($request->expectsJson()) {
+            return response()->json(['message' => 'asdasdad'], 500);
+        }
+
+        return redirect()->route('login');
     }
 }

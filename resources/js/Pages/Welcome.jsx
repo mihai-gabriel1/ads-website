@@ -82,37 +82,32 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <Header />
             </div>
             <div className="listed-ads gap-12">
-                {auth.user && (
-                    <form onSubmit={createPost}>
-                        <div>
-                            <label htmlFor="title">Title:</label>
-                            <input
-                                type="text"
-                                id="title"
-                                value={title}
-                                onChange={(event) =>
-                                    setTitle(event.target.value)
-                                }
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="body">Body:</label>
-                            <textarea
-                                id="body"
-                                value={body}
-                                onChange={(event) =>
-                                    setBody(event.target.value)
-                                }
-                            ></textarea>
-                        </div>
-                        <button
-                            className="create-post-btn rounded mt-2"
-                            type="submit"
-                        >
-                            Create a post
-                        </button>
-                    </form>
-                )}
+                <form onSubmit={createPost}>
+                    <div>
+                        <label htmlFor="title">Title:</label>
+                        <input
+                            type="text"
+                            id="title"
+                            value={title}
+                            onChange={(event) => setTitle(event.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="body">Body:</label>
+                        <textarea
+                            id="body"
+                            value={body}
+                            onChange={(event) => setBody(event.target.value)}
+                        ></textarea>
+                    </div>
+                    <button
+                        className="create-post-btn rounded mt-2"
+                        type="submit"
+                    >
+                        Create a post
+                    </button>
+                </form>
+
                 <ListedAds
                     ads={ads}
                     onAdRemoved={handleAdRemoved}

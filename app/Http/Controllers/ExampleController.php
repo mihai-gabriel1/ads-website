@@ -23,8 +23,10 @@ class ExampleController extends Controller
     public function getAds()
     {
         $ads = Ad::all();
-
-        return response()->json($ads);
+        if($ads) {
+            return response()->json($ads);
+        }
+        return response()->json([], 500);
     }
     
 
