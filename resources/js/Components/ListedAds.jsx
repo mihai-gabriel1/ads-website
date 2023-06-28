@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     const [ads, setAds] = useState(initialAds);
@@ -7,13 +8,8 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     const fetchAds = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("/api/get-ads");
-            if (response.ok) {
-                const data = await response.json();
-                setAds(data);
-            } else {
-                console.error("Error:", response.status);
-            }
+            const response = await axios.get("/api/get-ads");
+            setAds(response.data);
         } catch (error) {
             console.error("Error:", error);
         } finally {
@@ -26,11 +22,9 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     }, []);
 
     const handleRemoveAd = (adId) => {
-        fetch(`/api/remove-ad/${adId}`, {
-            method: "DELETE",
-        })
-            .then((response) => response.json())
-            .then((data) => {
+        axios
+            .delete(`/api/remove-ad/${adId}`)
+            .then((response) => {
                 onAdRemoved(adId);
                 setAds((prevAds) => prevAds.filter((ad) => ad.id !== adId));
             })

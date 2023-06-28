@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const CreateAd = ({ onAdCreated }) => {
     const [title, setTitle] = useState("");
@@ -15,15 +16,10 @@ const CreateAd = ({ onAdCreated }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Send the form data to the backend API endpoint
-        fetch("/api/create-ad", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ title, body }),
-        })
-            .then((response) => response.json())
+        // Send the form data to the backend API endpoint using Axios
+        axios
+            .post("/api/create-ad", { title, body })
+            .then((response) => response.data)
             .then((data) => {
                 // Call the onAdCreated function passed from the parent component
                 onAdCreated(data);
