@@ -14,6 +14,8 @@ Ads posting website, created using ReactJS for frontend, and PHP/Laravel for the
     php composer-setup.php
     php -r "unlink('composer-setup.php');"</code>
 
+-   Install MySQL
+
 -   Install NPM - <code>npm install</code> and additional stuff you might need judging on the system you run the project on.
 
 # Run the project
