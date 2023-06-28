@@ -41,4 +41,13 @@ Route::middleware(['auth', 'rolepermission'])->group(function () {
 
 Route::post('/ads', [AdController::class, 'store'])->middleware('auth')->name('ads.store');
 
+// Admin page - route test
+Route::get('/admin', function () {
+    return Inertia::render('AdminRoute', [
+        'username' => 'Testing the props once again',
+        'why' => 'because fu'
+    ]);
+});
+// Admin page - route test
+
 require __DIR__.'/auth.php';

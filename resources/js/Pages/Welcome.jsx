@@ -51,7 +51,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <p className="placeholder-logo">
                     <a href="/">Logo</a>
                 </p>
-                <div className="navbar">
+                <div className="navbar flex gap-3">
+                    <a href="/admin">Admin Panel</a>
                     {auth.user ? (
                         <Link
                             href={route("dashboard")}
