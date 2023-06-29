@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@inertiajs/inertia-react": "^0.8.1",
+        "csurf": "^1.11.0",
         "react-router-dom": "^6.13.0"
     }
 }

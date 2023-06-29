@@ -24,7 +24,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->middleware(['rolepermission']);
+})->name('home');
 
 // Admin route test
 Route::get('/admin', function () {

@@ -16,15 +16,15 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-    
         if(auth()->check()) {
             return $next($request);
         }
 
         if($request->expectsJson()) {
-            return response()->json(['message' => 'asdasdad'], 500);
+            return response()->json(['message' => 'You do not have  the necessary permissiosn to view this page.'], 500);
         }
 
-        return redirect()->route('login');
+        // return response()->json(['message' => 'asdasdad'], 500);
+        return redirect()->route('home');
     }
 }

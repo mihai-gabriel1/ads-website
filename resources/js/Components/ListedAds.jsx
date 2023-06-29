@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
     const [ads, setAds] = useState(initialAds);
@@ -16,6 +16,15 @@ const ListedAds = ({ ads: initialAds, onAdRemoved, auth }) => {
             setIsLoading(false);
         }
     };
+
+    // axios
+    //     .get("api/get-ads")
+    //     .then((data) => {
+    //         console.log(data);
+    //     })
+    //     .catch(({ response }) => {
+    //         console.log(response.data.message);
+    //     });
 
     useEffect(() => {
         fetchAds();
