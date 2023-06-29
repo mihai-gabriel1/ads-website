@@ -52,7 +52,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     <a href="/">Logo</a>
                 </p>
                 <div className="navbar flex gap-3">
-                    <a href="/admin">Admin Panel</a>
                     {auth.user ? (
                         <Link
                             href={route("dashboard")}

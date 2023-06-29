@@ -26,6 +26,18 @@ Route::get('/', function () {
     ]);
 })->middleware(['rolepermission']);
 
+// Admin route test
+Route::get('/admin', function () {
+    return Inertia::render('Users/Admin');
+});
+// Admin route test
+
+// User route test
+Route::get('/user', function () {
+    return Inertia::render('Users/User');
+});
+// User route test
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified', 'rolepermission'])->name('dashboard');
@@ -38,16 +50,7 @@ Route::middleware(['auth', 'rolepermission'])->group(function () {
     // Add the following route for the create post view
     Route::get('/create-post', [AdController::class, 'create'])->name('create-post');
 });
-
+ 
 Route::post('/ads', [AdController::class, 'store'])->middleware('auth')->name('ads.store');
-
-// Admin page - route test
-Route::get('/admin', function () {
-    return Inertia::render('AdminRoute', [
-        'username' => 'Testing the props once again',
-        'why' => 'because fu'
-    ]);
-});
-// Admin page - route test
 
 require __DIR__.'/auth.php';
